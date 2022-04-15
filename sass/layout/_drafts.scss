@@ -37,14 +37,13 @@
 
 .drafts__link {
     display: block;
-
     transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.drafts__link:hover,
-.drafts__link:focus {
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-        1px 4px 6px rgba(0, 0, 0, 0.16);
+    &:hover,
+    &:focus {
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+            1px 4px 6px rgba(0, 0, 0, 0.16);
+    }
 }
 
 .drafts__specification {
@@ -64,6 +63,12 @@
     transform: translateY(100%);
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
         transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+        .drafts__link:hover &,
+        .drafts__link:focus & {
+            opacity: 1;
+            transform: translateY(0%);
+        }
 }
 
 .drafts__thumb {
@@ -71,8 +76,3 @@
     position: relative;
 }
 
-.drafts__link:hover .drafts__specification,
-.drafts__link:focus .drafts__specification {
-    opacity: 1;
-    transform: translateY(0%);
-}
